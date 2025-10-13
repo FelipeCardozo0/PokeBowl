@@ -44,9 +44,6 @@ if str(ROOT) not in sys.path:
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 from ultralytics.utils.plotting import Annotator
-
-from models.common import DetectMultiBackend
-from utils.augmentations import classify_transforms
 from utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
 from utils.general import (
     LOGGER,
@@ -62,6 +59,9 @@ from utils.general import (
     strip_optimizer,
 )
 from utils.torch_utils import select_device, smart_inference_mode
+
+from models.common import DetectMultiBackend
+from utils.augmentations import classify_transforms
 
 
 @smart_inference_mode()

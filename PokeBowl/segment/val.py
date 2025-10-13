@@ -39,9 +39,6 @@ if str(ROOT) not in sys.path:
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 import torch.nn.functional as F
-
-from models.common import DetectMultiBackend
-from models.yolo import SegmentationModel
 from utils.callbacks import Callbacks
 from utils.general import (
     LOGGER,
@@ -68,6 +65,9 @@ from utils.segment.general import mask_iou, process_mask, process_mask_native, s
 from utils.segment.metrics import Metrics, ap_per_class_box_and_mask
 from utils.segment.plots import plot_images_and_masks
 from utils.torch_utils import de_parallel, select_device, smart_inference_mode
+
+from models.common import DetectMultiBackend
+from models.yolo import SegmentationModel
 
 
 def save_one_txt(predn, save_conf, shape, file):

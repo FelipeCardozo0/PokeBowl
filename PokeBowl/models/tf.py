@@ -26,6 +26,7 @@ import tensorflow as tf
 import torch
 import torch.nn as nn
 from tensorflow import keras
+from utils.general import LOGGER, make_divisible, print_args
 
 from models.common import (
     C3,
@@ -45,7 +46,6 @@ from models.common import (
 from models.experimental import MixConv2d, attempt_load
 from models.yolo import Detect, Segment
 from utils.activations import SiLU
-from utils.general import LOGGER, make_divisible, print_args
 
 
 class TFBN(keras.layers.Layer):
