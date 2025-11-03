@@ -67,8 +67,6 @@ if str(ROOT) not in sys.path:
 if platform.system() != "Windows":
     ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
-from models.experimental import attempt_load
-from models.yolo import ClassificationModel, Detect, DetectionModel, SegmentationModel
 from utils.dataloaders import LoadImages
 from utils.general import (
     LOGGER,
@@ -86,6 +84,9 @@ from utils.general import (
     yaml_save,
 )
 from utils.torch_utils import select_device, smart_inference_mode
+
+from models.experimental import attempt_load
+from models.yolo import ClassificationModel, Detect, DetectionModel, SegmentationModel
 
 MACOS = platform.system() == "Darwin"  # macOS environment
 
@@ -432,7 +433,6 @@ def export_openvino(file, metadata, half, int8, data, prefix=colorstr("OpenVINO:
         check_requirements("nncf>=2.5.0")  # requires at least version 2.5.0 to use the post-training quantization
         import nncf
         import numpy as np
-
         from utils.dataloaders import create_dataloader
 
         def gen_dataloader(yaml_path, task="train", imgsz=640, workers=4):

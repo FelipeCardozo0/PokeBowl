@@ -25,6 +25,19 @@ if str(ROOT) not in sys.path:
 if platform.system() != "Windows":
     ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
+from utils.autoanchor import check_anchor_order
+from utils.general import LOGGER, check_version, check_yaml, colorstr, make_divisible, print_args
+from utils.plots import feature_visualization
+from utils.torch_utils import (
+    fuse_conv_and_bn,
+    initialize_weights,
+    model_info,
+    profile,
+    scale_img,
+    select_device,
+    time_sync,
+)
+
 from models.common import (
     C3,
     C3SPP,
@@ -50,18 +63,6 @@ from models.common import (
     Proto,
 )
 from models.experimental import MixConv2d
-from utils.autoanchor import check_anchor_order
-from utils.general import LOGGER, check_version, check_yaml, colorstr, make_divisible, print_args
-from utils.plots import feature_visualization
-from utils.torch_utils import (
-    fuse_conv_and_bn,
-    initialize_weights,
-    model_info,
-    profile,
-    scale_img,
-    select_device,
-    time_sync,
-)
 
 try:
     import thop  # for FLOPs computation

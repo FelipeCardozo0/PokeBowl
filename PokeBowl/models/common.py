@@ -34,8 +34,6 @@ except (ImportError, AssertionError):
     import ultralytics
 
 from ultralytics.utils.plotting import Annotator, colors, save_one_box
-
-from utils import TryExcept
 from utils.dataloaders import exif_transpose, letterbox
 from utils.general import (
     LOGGER,
@@ -55,6 +53,8 @@ from utils.general import (
     yaml_load,
 )
 from utils.torch_utils import copy_attr, smart_inference_mode
+
+from utils import TryExcept
 
 
 def autopad(k, p=None, d=1):
@@ -792,8 +792,9 @@ class DetectMultiBackend(nn.Module):
         Example: path='path/to/model.onnx' -> type=onnx
         """
         # types = [pt, jit, onnx, xml, engine, coreml, saved_model, pb, tflite, edgetpu, tfjs, paddle]
-        from export import export_formats
         from utils.downloads import is_url
+
+        from export import export_formats
 
         sf = list(export_formats().Suffix)  # export suffixes
         if not is_url(p, check=False):
