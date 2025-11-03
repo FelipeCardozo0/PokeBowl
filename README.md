@@ -11,7 +11,6 @@ An AI-powered food recognition and monitoring system designed for restaurant ref
 - Optional alerts for low stock or expired items
 - Lightweight Firebase integration for cloud logging and notifications (optional)
 
-
 # System Requirements
 
 - Raspberry Pi 4 (4GB+ recommended)
@@ -27,14 +26,13 @@ An AI-powered food recognition and monitoring system designed for restaurant ref
 - **Framework:** PyTorch
 - **Input Size:** 640x640
 - **Dataset:** Custom dataset of labeled restaurant items
-- **Training:** Requires ~100 labeled images per class for 90%+ accuracy  
+- **Training:** Requires ~100 labeled images per class for 90%+ accuracy
 - **Output:** Label, bounding box, confidence score
 
 {
-  "meat_01": {
-    "type": "meat",
-    "added": "2025-07-14T15:32:18",
-    "volume": 14320
-  }
+"meat_01": {
+"type": "meat",
+"added": "2025-07-14T15:32:18",
+"volume": 14320
 }
-
+}
